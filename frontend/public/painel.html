@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel de Atendimento Academia</title>
+  <link rel="stylesheet" href="/css/painel.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="brand-mark">One</div>
+        <div>
+          <h1>Painel de Atendimento</h1>
+          <p>Central comercial da academia</p>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <select id="statusFilter" class="topbar-select">
+          <option value="">Todos os status</option>
+          <option value="novo_lead">Novo lead</option>
+          <option value="em_atendimento">Em atendimento</option>
+          <option value="atendido">Atendido</option>
+        </select>
+
+        <button class="primary-btn" id="refreshButton">Atualizar</button>
+      </div>
+    </header>
+
+    <section class="stats-row">
+      <div class="stat-card">
+        <span class="stat-label">Conversas</span>
+        <strong class="stat-value" id="statConversas">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-label">Novos leads</span>
+        <strong class="stat-value" id="statNovos">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-label">Em atendimento</span>
+        <strong class="stat-value" id="statAndamento">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-label">Última atualização</span>
+        <strong class="stat-value stat-time" id="statAtualizacao">--:--</strong>
+      </div>
+    </section>
+
+    <main class="workspace">
+      <aside class="sidebar-panel">
+        <div class="panel-head">
+          <h2>Conversas</h2>
+          <span class="badge-count" id="conversationCount">0</span>
+        </div>
+
+        <div class="conversation-search-wrap">
+          <input
+            type="text"
+            id="conversationSearch"
+            class="conversation-search"
+            placeholder="Buscar por nome ou telefone"
+          />
+        </div>
+
+        <div class="conversation-list" id="conversationList">
+          <div class="empty-state">
+            Nenhuma conversa carregada.
+          </div>
+        </div>
+      </aside>
+
+      <section class="chat-panel">
+        <div class="chat-header">
+          <div class="chat-contact">
+            <div class="chat-avatar" id="chatAvatar">?</div>
+
+            <div class="chat-contact-info">
+              <h3 id="chatContactName">Selecione uma conversa</h3>
+              <p id="chatContactMeta">As mensagens aparecerão aqui</p>
+            </div>
+          </div>
+
+          <div class="chat-header-actions">
+            <select id="chatStatusSelect" class="topbar-select">
+              <option value="novo_lead">Novo lead</option>
+              <option value="em_atendimento">Em atendimento</option>
+              <option value="atendido">Atendido</option>
+            </select>
+
+            <button class="secondary-btn" id="updateStatusButton">
+              Atualizar status
+            </button>
+          </div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+          <div class="empty-state">
+            Selecione uma conversa na esquerda para visualizar o atendimento.
+          </div>
+        </div>
+
+        <div class="chat-input-bar">
+          <input
+            type="text"
+            id="messageInput"
+            class="message-input"
+            placeholder="Digite uma mensagem como atendente..."
+          />
+          <button class="primary-btn" id="sendMessageButton">Enviar</button>
+        </div>
+      </section>
+
+      <aside class="details-panel">
+        <div class="panel-head">
+          <h2>Detalhes</h2>
+        </div>
+
+        <div class="details-content" id="detailsContent">
+          <div class="empty-state">
+            Selecione uma conversa para ver os detalhes do lead.
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="/js/painel.js"></script>
+</body>
+</html>
